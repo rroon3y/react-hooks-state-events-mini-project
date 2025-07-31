@@ -1,13 +1,11 @@
-function Task({ text, category, onDelete }) {
-  function handleClick() {
-    onDelete(text);
-  }
+import React from "react";
 
+function Task({ id, text, category, onDelete }) {
   return (
     <div className="task">
       <div className="label">{category}</div>
       <div className="text">{text}</div>
-      <button className="delete" onClick={handleClick}>X</button>
+      <button onClick={() => onDelete(id)}>X</button>
     </div>
   );
 }

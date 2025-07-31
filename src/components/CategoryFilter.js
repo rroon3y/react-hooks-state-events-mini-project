@@ -1,15 +1,20 @@
-function CategoryFilter({ categories, selectedCategory, onCategoryChange }) {
-  const categoryButtons = categories.map((cat) => (
-    <button
-      key={cat}
-      className={cat === selectedCategory ? "selected" : ""}
-      onClick={() => onCategoryChange(cat)}
-    >
-      {cat}
-    </button>
-  ));
+import React from "react";
 
-  return <div className="categories">{categoryButtons}</div>;
+function CategoryFilter({ categories, selectedCategory, setSelectedCategory }) {
+  return (
+    <div className="categories">
+      <h5>Category filters</h5>
+      {categories.map((category) => (
+        <button
+          key={category}
+          className={selectedCategory === category ? "selected" : ""}
+          onClick={() => setSelectedCategory(category)}
+        >
+          {category}
+        </button>
+      ))}
+    </div>
+  );
 }
 
 export default CategoryFilter;
